@@ -1,5 +1,6 @@
 // import Nav from "./components/Navigation/Nav";
 import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 import {
   BrowserRouter as Router,
@@ -26,8 +27,12 @@ function App() {
             contact
           </Route>
 
-          <Route path="/login" exact>
+          <Route path="/login">
             <Login />
+          </Route>
+
+          <Route path="/register">
+            <Register />
           </Route>
 
           <Route path="/" exact>
