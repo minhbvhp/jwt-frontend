@@ -20,12 +20,7 @@ const Register = (props) => {
         isValidConfirmPassword: true,
     }
 
-    const [objCheckInput, setObjCheckInput] = useState({
-        isValidEmail: true,
-        isValidPhone: true,
-        isValidPassword: true,
-        isValidConfirmPassword: true,
-    });
+    const [objCheckInput, setObjCheckInput] = useState(defaultValidInput);
 
     let history = useHistory();
     const handleLogin = () => {
