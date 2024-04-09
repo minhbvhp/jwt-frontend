@@ -4,6 +4,7 @@ const instance = axios.create({
     baseURL: 'http://localhost:8080'
 });
 
+instance.defaults.withCredentials = true;
 // instance.defaults.headers.common['Authorization'] = 'AUTH_TOKEN 123555';
 
 instance.interceptors.request.use(function (config) {
