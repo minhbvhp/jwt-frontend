@@ -54,15 +54,15 @@ const ModalUser = (props) => {
     const getGroups = async () => {
         let res = await fetchGroups();
 
-        if (res && res.data && res.data.EC === 0) {
-            setUserGroup(res.data.DT);
+        if (res && res.EC === 0) {
+            setUserGroup(res.DT);
 
-            if (res.data.DT && res.data.DT.length > 0) {
-                let group = res.data.DT;
+            if (res.DT && res.DT.length > 0) {
+                let group = res.DT;
                 setUserData({ ...userData, group: group[0].id })
             }
         } else {
-            toast.error(res.data.EM);
+            toast.error(res.EM);
         }
     }
 
@@ -113,7 +113,7 @@ const ModalUser = (props) => {
                 ? await createNewUser({ ...userData, groupId: userData['group'] })
                 : await updateCurrentUser({ ...userData, groupId: userData['group'] })
 
-            if (res.data && res.data.EC === 0) {
+            if (res && res.EC === 0) {
                 toast.success(`User create success !`);
                 props.onHide();
                 setUserData({
@@ -122,10 +122,10 @@ const ModalUser = (props) => {
                 });
             }
 
-            if (res.data && res.data.EC !== 0) {
-                toast.error(res.data.EM);
+            if (res && res.EC !== 0) {
+                toast.error(res.EM);
                 let _validInputs = _.cloneDeep(validInputsDefault);
-                _validInputs[res.data.DT] = false;
+                _validInputs[res.DT] = false;
                 setValidInputs(_validInputs);
             }
         }
