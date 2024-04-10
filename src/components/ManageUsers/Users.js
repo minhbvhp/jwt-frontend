@@ -148,7 +148,7 @@ const Users = (props) => {
                                         </>
                                         :
                                         <>
-                                            <tr><td>Not found users</td></tr>
+                                            <tr><td colSpan="6">Not found users</td></tr>
                                         </>
                                     }
                                 </tbody>
