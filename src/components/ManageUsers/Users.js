@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { fetchAllUser, deleteUser } from "../../services/userService";
 import ReactPaginate from 'react-paginate';
