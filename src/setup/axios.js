@@ -22,32 +22,32 @@ instance.interceptors.response.use(function (response) {
     switch (status) {
         case 401: {
             toast.error("Unauthorized the user. Please login !");
-            return Promise.reject(error);
+            return error.response.data;
         }
 
         case 403: {
             toast.error(`You don't have permission to access this resource !`);
-            return Promise.reject(error);
+            return error.response.data;
         }
 
         case 400: {
-            return Promise.reject(error);
+            return error.response.data;
         }
 
         case 404: {
-            return Promise.reject(error);
+            return error.response.data;
         }
 
         case 409: {
-            return Promise.reject(error);
+            return error.response.data;
         }
 
         case 422: {
-            return Promise.reject(error);
+            return error.response.data;
         }
 
         default: {
-            return Promise.reject(error);
+            return error.response.data;
         }
     }
 });
