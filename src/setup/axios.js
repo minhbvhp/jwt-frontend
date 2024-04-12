@@ -6,9 +6,10 @@ const instance = axios.create({
 });
 
 instance.defaults.withCredentials = true;
-// instance.defaults.headers.common['Authorization'] = 'AUTH_TOKEN 123555';
+// instance.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("jwt")}`;
 
 instance.interceptors.request.use(function (config) {
+    config.headers.Authorization = `Bearer ${localStorage.getItem("jwt")}`;
     return config;
 }, function (error) {
     return Promise.reject(error);
@@ -21,12 +22,10 @@ instance.interceptors.response.use(function (response) {
 
     switch (status) {
         case 401: {
-            toast.error("Unauthorized the user. Please login !");
             return error.response.data;
         }
 
         case 403: {
-            toast.error(`You don't have permission to access this resource !`);
             return error.response.data;
         }
 

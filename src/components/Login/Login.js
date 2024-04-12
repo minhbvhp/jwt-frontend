@@ -63,6 +63,7 @@ const Login = (props) => {
                 }
             }
 
+            localStorage.setItem('jwt', token);
             loginContext(data);
 
             history.push("/users");
