@@ -75,7 +75,7 @@ const Login = (props) => {
     }
 
     const handleEnterDown = (event) => {
-        if (event.charCode === 13 && event.code === "Enter") {
+        if (event.charCode === 13) {
             handleLogin();
         }
     }
