@@ -50,9 +50,7 @@ const UserProvider = ({ children }) => {
                 isLoading: false
             }
 
-            setTimeout(() => {
-                setUser(data);
-            }, 3000)
+            setUser(data);
         } else {
             setUser({ ...userDefault, isLoading: false })
         }
