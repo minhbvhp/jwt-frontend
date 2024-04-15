@@ -16,9 +16,10 @@ instance.interceptors.request.use(function (config) {
 });
 
 instance.interceptors.response.use(function (response) {
-    return response.data;
+    console.log(response.data);
+    return response?.data;
 }, function (error) {
-    const status = error && error.response && error.response.status || 500;
+    const status = error?.response?.status || 500;
 
     switch (status) {
         case 401: {
